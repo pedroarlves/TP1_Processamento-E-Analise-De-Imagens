@@ -43,3 +43,11 @@ Use QGraphicsScene + QGraphicsView:
 * BlockItem(QGraphicsItem): bloco visual.
 
 * ConnectorLine(QGraphicsPathItem): conexão entre blocos.
+
+## Instale dependências:
+
+pip install PyQt6 numpy
+
+## Execute:
+
+python main.py
