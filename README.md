@@ -2,7 +2,6 @@
 
 ## 🧩 1. Estrutura Geral do Projeto
 
-
 * PSE-Image/
 * │
 * ├── main.py                # Ponto de entrada
@@ -11,6 +10,7 @@
 * │   ├── block_base.py      # Classe base para blocos
 * │   ├── block_types.py     # Implementações específicas dos blocos
 * │   └── connectors.py      # Gerencia conexões visuais entre blocos
+* │   └── main_window.py      # Gerencia conexões visuais entre blocos   
 * │
 * ├── core/                  # Processamento de imagem
 * │   ├── image_io.py        # Leitura e gravação de arquivos RAW
@@ -21,3 +21,25 @@
 * │
 * ├── assets/                # Imagens de teste
 * └── manual/                # Manual do usuário e vídeo
+
+## 🪟 2. Interface Gráfica (PyQt)
+
+**Objetivo:** o usuário cria o fluxo ligando **blocos visuais.**
+
+Use QGraphicsScene + QGraphicsView:
+
+* Cada bloco é um QGraphicsRectItem com:
+
+    * Nome (ex.: “Brilho”, “Histograma”)
+
+    * Entradas e saídas conectáveis (círculos laterais)
+
+    * Botão de parametrização (abre um QDialog)
+
+**Classes principais:**
+
+* WorkspaceView(QGraphicsView): área onde o usuário arrasta os blocos.
+
+* BlockItem(QGraphicsItem): bloco visual.
+
+* ConnectorLine(QGraphicsPathItem): conexão entre blocos.
