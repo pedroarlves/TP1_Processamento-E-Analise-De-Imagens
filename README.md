@@ -52,3 +52,6 @@ pip install PyQt6 numpy
 ## Execute:
 
 python main.py
+
+## Link de imagens .raw para testar
+https://links.uwaterloo.ca/Repository/RAW/
