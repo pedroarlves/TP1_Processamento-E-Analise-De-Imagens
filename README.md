@@ -9,8 +9,9 @@
 * │   ├── workspace.py       # Área de montagem dos blocos
 * │   ├── block_base.py      # Classe base para blocos
 * │   ├── block_types.py     # Implementações específicas dos blocos
-* │   └── connectors.py      # Gerencia conexões visuais entre blocos
-* │   └── main_window.py      # Gerencia conexões visuais entre blocos   
+* │   ├── connectors.py      # 
+* │   ├── main_window.py     # 
+* │   └── dialog_brilho.py   # novo diálogo com QSlider
 * │
 * ├── core/                  # Processamento de imagem
 * │   ├── image_io.py        # Leitura e gravação de arquivos RAW

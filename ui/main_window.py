@@ -24,8 +24,9 @@ class MainWindow(QMainWindow):
     # ---------------------------------------------------------------------
     def _create_menu(self):
         menubar = self.menuBar()
-        file_menu = menubar.addMenu("Arquivo")
 
+        # ---------------- Arquivo ----------------
+        file_menu = menubar.addMenu("Arquivo")
         open_action = QAction("Abrir RAW", self)
         open_action.triggered.connect(self.open_raw_image)
         file_menu.addAction(open_action)
@@ -33,12 +34,30 @@ class MainWindow(QMainWindow):
         save_action = QAction("Salvar RAW", self)
         save_action.triggered.connect(self.save_raw_image)
         file_menu.addAction(save_action)
-
         file_menu.addSeparator()
-
         exit_action = QAction("Sair", self)
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
+
+        # ---------------- Processamento ----------------
+        process_menu = menubar.addMenu("Processamento")
+
+        brightness_action = QAction("Ajustar Brilho", self)
+        brightness_action.triggered.connect(self.open_brightness_dialog)
+        process_menu.addAction(brightness_action)
+
+    # ---------------------------------------------------------------------
+    # Diálogo de brilho
+    # ---------------------------------------------------------------------
+    def open_brightness_dialog(self):
+        """Abre janela de ajuste de brilho."""
+        if self.current_image is None:
+            QMessageBox.warning(self, "Aviso", "Nenhuma imagem carregada.")
+            return
+
+        from ui.dialog_brilho import BrightnessDialog
+        dialog = BrightnessDialog(self)
+        dialog.exec()
 
     # ---------------------------------------------------------------------
     # ABRIR IMAGEM RAW
@@ -95,13 +114,16 @@ class MainWindow(QMainWindow):
     # ---------------------------------------------------------------------
     # INTERFACE PARA PROCESSAMENTO FUTURO
     # ---------------------------------------------------------------------
-    def update_current_image(self, new_image):
+    def update_current_image(self, new_image, replace=True):
         """
         Atualiza a imagem atual após processamento (brilho, limiarização etc.).
-        Isso será chamado pelos blocos de processamento.
+        Se replace=False, atualiza apenas a exibição (não altera o histórico).
         """
         from core.image_io import to_qimage
         qimg = to_qimage(new_image)
         self.workspace.show_image(qimg)
-        self.current_image = new_image
-        self.image_history.append(new_image.copy())
+
+        if replace:
+            self.current_image = new_image
+            self.image_history.append(new_image.copy())
+

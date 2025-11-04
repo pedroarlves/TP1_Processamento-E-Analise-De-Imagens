@@ -2,9 +2,18 @@
 #   Operações Pontuais
 import numpy as np
 
+
+
 #brilho
 def adjust_brightness(img, value):
-    return np.clip(img + value, 0, 255).astype(np.uint8)
+    """
+    Ajusta o brilho da imagem (8 bits, grayscale).
+    value pode variar de -255 a +255.
+    """
+    result = img.astype(np.int16) + value
+    result = np.clip(result, 0, 255)
+    return result.astype(np.uint8)
+
  
 #limiarização
 def threshold_image(img, thresh):   
