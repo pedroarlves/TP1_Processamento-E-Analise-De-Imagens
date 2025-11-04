@@ -1,6 +1,5 @@
-# ./ui/workspace.py
-
 from PyQt6.QtWidgets import QGraphicsScene, QGraphicsView
+from PyQt6.QtCore import Qt
 
 class Workspace(QGraphicsView):
     """Área principal onde blocos e imagens serão exibidos."""
@@ -20,4 +19,4 @@ class Workspace(QGraphicsView):
         item = QGraphicsPixmapItem(pixmap)
         self.scene.clear()
         self.scene.addItem(item)
-        self.fitInView(item, mode=1)
+        self.fitInView(item, Qt.AspectRatioMode.KeepAspectRatio)

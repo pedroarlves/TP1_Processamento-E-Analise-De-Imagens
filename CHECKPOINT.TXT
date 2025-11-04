@@ -1,0 +1,9 @@
+oQUE FOI FEITO:
+
+três blocos básicos: leitura, exibição e gravação.
+
+Base pronta para adicionar blocos de processamento.
+
+OQUE FALTA:
+
+adicionar blocos de processamento.
