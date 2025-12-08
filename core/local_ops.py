@@ -30,13 +30,25 @@ MASKS = {
 
 # função de convolução genérica
 def convolve(img, kernel):
+    # Pega dimensões da imagem e do kernel
     h, w = img.shape
     kh, kw = kernel.shape
+
+    # Calcula padding para bordas
     pad_h, pad_w = kh // 2, kw // 2
+
+    # Adiciona borda à imagem
     padded = np.pad(img, ((pad_h, pad_h), (pad_w, pad_w)), mode='edge')
+
+    # Cria imagem resultado vazia
     result = np.zeros_like(img, dtype=np.float32)
+
     for i in range(h):
         for j in range(w):
+            # Pega região 3x3 ao redor do pixel (i,j)
             region = padded[i:i+kh, j:j+kw]
+            # FAZ A CONVOLUÇÃO: multiplicação + soma
             result[i, j] = np.sum(region * kernel)
+            # region * kernel: multiplica elemento por elemento
+            # np.sum(): soma todos os 9 valores resultantes
     return np.clip(result, 0, 255).astype(np.uint8)

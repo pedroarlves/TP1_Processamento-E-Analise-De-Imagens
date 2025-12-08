@@ -1,6 +1,10 @@
 # TP1_Processamento-E-Analise-De-Imagens
 
-## 1. Estrutura Geral do Projeto
+## 1. Objetivo da aplicação 
+
+Permitir que o usuário monte fluxos de processamento visualmente conectando blocos (p.ex. Brilho → Convolução → Histograma), parametrizando cada bloco via diálogos e visualizando resultados em tempo real.
+
+## 2. Estrutura Geral do Projeto
 
 * PSE-Image/
 * │
@@ -9,11 +13,11 @@
 * │   ├── workspace.py          # Área de montagem dos blocos
 * │   ├── block_base.py         # Classe base para blocos
 * │   ├── block_types.py        # Implementações específicas dos blocos
-* │   ├── connectors.py         # 
-* │   ├── main_window.py        # 
-* │   |── dialog_brilho.py      # novo diálogo com QSlider
-* |   ├── dialog_diff.py        # Diálogo de diferença entre imagens
-* |   └── dialog_convolution.py # Diálogo de convolução personalizada
+* │   ├── connectors.py         # Linhas/conexões entre blocos
+* │   ├── main_window.py        # Janela principal (menu, toolbar, integração)
+* │   ├── dialog_brilho.py      # Diálogo de ajuste de brilho (QSlider)
+* │   ├── dialog_diff.py        # Diálogo para diferença entre imagens
+* │   └── dialog_convolution.py # Diálogo de convolução personalizada
 * │
 * ├── core/                     # Processamento de imagem
 * │   ├── image_io.py           # Leitura e gravação de arquivos RAW
@@ -25,9 +29,7 @@
 * ├── assets/                   # Imagens de teste
 * └── manual/                   # Manual do usuário e vídeo
 
-## 2. Interface Gráfica (PyQt)
-
-**Objetivo:** o usuário cria o fluxo ligando **blocos visuais.**
+## 3. Implementação
 
 Use QGraphicsScene + QGraphicsView:
 
@@ -41,19 +43,12 @@ Use QGraphicsScene + QGraphicsView:
 
 **Classes principais:**
 
-* WorkspaceView(QGraphicsView): área onde o usuário arrasta os blocos.
+* WorkspaceView(QGraphicsView): área onde o usuário manipula os blocos.
 
 * BlockItem(QGraphicsItem): bloco visual.
 
 * ConnectorLine(QGraphicsPathItem): conexão entre blocos.
 
-## Instale dependências:
+## 4. Utilização
 
-pip install PyQt6 numpy
-
-## Execute:
-
-python main.py
-
-## Link de imagens .raw para testar
-https://links.uwaterloo.ca/Repository/RAW/
+Conferir manual disponível em `manual/manual.md`.
