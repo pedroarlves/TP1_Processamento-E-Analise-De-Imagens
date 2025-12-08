@@ -46,6 +46,17 @@ class MainWindow(QMainWindow):
         brightness_action.triggered.connect(self.open_brightness_dialog)
         process_menu.addAction(brightness_action)
 
+        # ADICIONE ESTAS LINHAS PARA OS NOVOS BLOCOS:
+        process_menu.addSeparator()
+        
+        diff_action = QAction("Diferença entre Imagens", self)
+        diff_action.triggered.connect(self.open_diff_dialog)
+        process_menu.addAction(diff_action)
+        
+        conv_action = QAction("Convolução Personalizada", self)
+        conv_action.triggered.connect(self.open_convolution_dialog)
+        process_menu.addAction(conv_action)
+        
     # ---------------------------------------------------------------------
     # Diálogo de brilho
     # ---------------------------------------------------------------------
@@ -127,3 +138,24 @@ class MainWindow(QMainWindow):
             self.current_image = new_image
             self.image_history.append(new_image.copy())
 
+        # ---------------------------------------------------------------------
+    # Diálogo de diferença entre imagens
+    # ---------------------------------------------------------------------
+    def open_diff_dialog(self):
+        """Abre janela para calcular diferença entre duas imagens."""
+        from ui.dialog_diff import DiffDialog
+        dialog = DiffDialog(self)
+        dialog.exec()
+
+    # ---------------------------------------------------------------------
+    # Diálogo de convolução personalizada
+    # ---------------------------------------------------------------------
+    def open_convolution_dialog(self):
+        """Abre janela para convolução com máscara personalizada."""
+        if self.current_image is None:
+            QMessageBox.warning(self, "Aviso", "Nenhuma imagem carregada.")
+            return
+        
+        from ui.dialog_convolution import ConvolutionDialog
+        dialog = ConvolutionDialog(self)
+        dialog.exec()

@@ -1,29 +1,31 @@
 # TP1_Processamento-E-Analise-De-Imagens
 
-## 🧩 1. Estrutura Geral do Projeto
+## 1. Estrutura Geral do Projeto
 
 * PSE-Image/
 * │
-* ├── main.py                # Ponto de entrada
-* ├── ui/                    # Interface gráfica (QMainWindow, blocos)
-* │   ├── workspace.py       # Área de montagem dos blocos
-* │   ├── block_base.py      # Classe base para blocos
-* │   ├── block_types.py     # Implementações específicas dos blocos
-* │   ├── connectors.py      # 
-* │   ├── main_window.py     # 
-* │   └── dialog_brilho.py   # novo diálogo com QSlider
+* ├── main.py                   # Ponto de entrada
+* ├── ui/                       # Interface gráfica (QMainWindow, blocos)
+* │   ├── workspace.py          # Área de montagem dos blocos
+* │   ├── block_base.py         # Classe base para blocos
+* │   ├── block_types.py        # Implementações específicas dos blocos
+* │   ├── connectors.py         # 
+* │   ├── main_window.py        # 
+* │   |── dialog_brilho.py      # novo diálogo com QSlider
+* |   ├── dialog_diff.py        # Diálogo de diferença entre imagens
+* |   └── dialog_convolution.py # Diálogo de convolução personalizada
 * │
-* ├── core/                  # Processamento de imagem
-* │   ├── image_io.py        # Leitura e gravação de arquivos RAW
-* │   ├── point_ops.py       # Operações pontuais (brilho, threshold, etc)
-* │   ├── local_ops.py       # Operações locais (convolução, máscaras)
-* │   ├── histogram.py       # Cálculo e exibição de histogramas
-* │   └── diff.py            # Diferença entre duas imagens
-* │
-* ├── assets/                # Imagens de teste
-* └── manual/                # Manual do usuário e vídeo
+* ├── core/                     # Processamento de imagem
+* │   ├── image_io.py           # Leitura e gravação de arquivos RAW
+* │   ├── point_ops.py          # Operações pontuais (brilho, threshold, etc)
+* │   ├── local_ops.py          # Operações locais (convolução, máscaras)
+* │   ├── histogram.py          # Cálculo e exibição de histogramas
+* │   └── diff.py               # Diferença entre duas imagens
+* │ 
+* ├── assets/                   # Imagens de teste
+* └── manual/                   # Manual do usuário e vídeo
 
-## 🪟 2. Interface Gráfica (PyQt)
+## 2. Interface Gráfica (PyQt)
 
 **Objetivo:** o usuário cria o fluxo ligando **blocos visuais.**
 
