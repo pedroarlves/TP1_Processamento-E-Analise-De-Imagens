@@ -4,24 +4,24 @@ import numpy as np
 
 # máscaras clássicas:
 MASKS = {
-    "Média 3x3": np.ones((3,3))/9,
-    "Média 5x5": np.ones((5,5))/25,
-    "Laplaciano": np.array([[0, -1, 0],
+    "Média 3x3": np.ones((3,3))/9,  # borramento simples
+    "Média 5x5": np.ones((5,5))/25, # borramento mais forte
+    "Laplaciano": np.array([[0, -1, 0], # realça bordas 
                             [-1, 4, -1],
                             [0, -1, 0]]),
-    "Laplaciano Alternativo": np.array([[-1, -1, -1],
+    "Laplaciano Alternativo": np.array([[-1, -1, -1], # realça bordas melhor 
                                         [-1, 8, -1],
                                         [-1, -1, -1]]),
-    "Sobel X": np.array([[-1, 0, 1],
+    "Sobel X": np.array([[-1, 0, 1], # realça bordas horizontais
                          [-2, 0, 2],
                          [-1, 0, 1]]),
-    "Sobel Y": np.array([[-1, -2, -1],
+    "Sobel Y": np.array([[-1, -2, -1], # realça bordas verticais
                          [0, 0, 0],
                          [1, 2, 1]]),
-    "Sharpen": np.array([[0, -1, 0],
+    "Sharpen": np.array([[0, -1, 0], # nitidez
                          [-1, 5, -1],
                          [0, -1, 0]]),
-    "Gaussiano 3x3": np.array([[1, 2, 1],
+    "Gaussiano 3x3": np.array([[1, 2, 1], # borramento gaussiano
                                [2, 4, 2],
                                [1, 2, 1]]) / 16
 }
