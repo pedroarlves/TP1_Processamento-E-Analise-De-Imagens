@@ -1,4 +1,18 @@
 # TP1_Processamento-E-Analise-De-Imagens
+## Alunos
+* Pedro Rodrigues Alves
+* Yasmin Cassemiro Viegas
+* Bárbara Luiza Freitas Carmo
+* Gabriel Luna dos Anjos
+* Daniel Lucas Murta
+
+## Professor Orientador
+
+* Carolina Stephanie Jerônimo de Almeida
+
+## Video Tutorial
+
+https://youtu.be/igLr-NViXqc
 
 ## 1. Objetivo da aplicação 
 
