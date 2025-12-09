@@ -3,7 +3,6 @@
 import numpy as np
 
 
-
 #brilho
 def adjust_brightness(img, value):
     """
